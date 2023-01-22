@@ -1,0 +1,81 @@
+Name:         mynginx-696ddbdfdf-wk6hl
+Namespace:    lab8
+Priority:     0
+Node:         crc-pbwlw-master-0/192.168.126.11
+Start Time:   Sat, 21 Jan 2023 17:56:13 -0600
+Labels:       app=mynginx
+              pod-template-hash=696ddbdfdf
+Annotations:  k8s.v1.cni.cncf.io/network-status:
+                [{
+                    "name": "openshift-sdn",
+                    "interface": "eth0",
+                    "ips": [
+                        "10.217.0.81"
+                    ],
+                    "default": true,
+                    "dns": {}
+                }]
+              k8s.v1.cni.cncf.io/networks-status:
+                [{
+                    "name": "openshift-sdn",
+                    "interface": "eth0",
+                    "ips": [
+                        "10.217.0.81"
+                    ],
+                    "default": true,
+                    "dns": {}
+                }]
+              openshift.io/scc: restricted-v2
+              seccomp.security.alpha.kubernetes.io/pod: runtime/default
+Status:       Running
+IP:           10.217.0.81
+IPs:
+  IP:           10.217.0.81
+Controlled By:  ReplicaSet/mynginx-696ddbdfdf
+Containers:
+  nginx:
+    Container ID:   cri-o://666086e3dd99dfd6253a484b0c0c64a01ae0f88771a3ec92dca63994d523a5da
+    Image:          bitnami/nginx
+    Image ID:       docker.io/bitnami/nginx@sha256:65110e5d89c7c6e29bb259fb2c1738de370587dfee2c4e057c34126dfcfb4d0e
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Sat, 21 Jan 2023 17:56:16 -0600
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /app from volume-r5dk8 (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-k87q5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  volume-r5dk8:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      mycm
+    Optional:  false
+  kube-api-access-k87q5:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+    ConfigMapName:           openshift-service-ca.crt
+    ConfigMapOptional:       <nil>
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason          Age   From               Message
+  ----    ------          ----  ----               -------
+  Normal  Scheduled       61s   default-scheduler  Successfully assigned lab8/mynginx-696ddbdfdf-wk6hl to crc-pbwlw-master-0 by crc-pbwlw-master-0
+  Normal  AddedInterface  59s   multus             Add eth0 [10.217.0.81/23] from openshift-sdn
+  Normal  Pulling         59s   kubelet            Pulling image "bitnami/nginx"
+  Normal  Pulled          58s   kubelet            Successfully pulled image "bitnami/nginx" in 1.07552156s
+  Normal  Created         58s   kubelet            Created container nginx
+  Normal  Started         58s   kubelet            Started container nginx
